@@ -1,0 +1,39 @@
+buildscript {
+    ext.kotlin_version = '1.2.71'
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+    // https://monoworks.co.jp/post/android_develop_memo_20150730/
+    // gradle.projectsEvaluated {
+    //     tasks.withType(JavaCompile) {
+    //         options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    //     }
+    // }
+}
+
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
