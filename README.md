@@ -22,8 +22,8 @@ $ flutter pub get
 
 you add firebase setting files.
 
-・ s**/android/app/google-services.json
-・ **/ios/Runner/GoogleService-Info.plist
+- \*\*/android/app/google-services.json
+- \*\*/ios/Runner/GoogleService-Info.plist
 
 ## How to sign in with Google
 
